@@ -14,7 +14,7 @@ class Solution{
 public:
     string convert(string str, int numRows)
     {
-        if(numRows == 1)    return str;
+        if(numRows == 1 || str.size() == 0)    return str;
         int group = 2 * numRows - 2;
         int half = numRows - 1;
         string s = "";
