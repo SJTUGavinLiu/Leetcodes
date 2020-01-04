@@ -26,7 +26,7 @@ public:
 
         return root;
     }
-    TreeNode* buildTree(vector<int>& postorder, vector<int>& inorder) {
+    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
         if(postorder.empty())
             return NULL;
         return helper(postorder,inorder,0,postorder.size()-1,0,inorder.size()-1);
