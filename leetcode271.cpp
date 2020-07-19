@@ -10,11 +10,14 @@ public:
             {
                 if(s[i] == ',')
                     res = res + "$,";
+                else if(s[i] == '$')
+                    res = res + "$$";
                 else 
                     res = res + s[i];
             }
             res = res + ",";
-        }
+        } 
+        //cout << res << endl;
         return res;
     }
 
@@ -31,6 +34,11 @@ public:
                 tmp = tmp + ',';
                 i+=2;
             }
+            else if(s[i] == '$' && i+1 < s.size() && s[i+1] == '$')
+            {
+                tmp = tmp + '$';
+                i+=2;
+            }
             else if(s[i] == ',')
             {
                 res.push_back(tmp);
@@ -38,7 +46,10 @@ public:
                 i++;
             }
             else
+            {
+                tmp = tmp + s[i];
                 i++;
+            }
 
         }
         if(tmp != "")
